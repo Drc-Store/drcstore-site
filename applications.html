@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Applications — DRC Stor</title>
+     <link rel="icon" href="assets/img/logo prince.PNG" type="image/x-icon">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/css/styles.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+  <a class="skip-link" href="#main">Aller au contenu</a>
+  <!-- Navbar (reuse) -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="assets/img/logo.svg" alt="DRC Stor" width="40" class="me-2" />
+        <span class="fw-bold">DRC Stor</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+          <li class="nav-item"><a class="nav-link active" href="applications.html">Applications</a></li>
+          <li class="nav-item"><a class="nav-link" href="developers.html">Développeurs</a></li>
+          <li class="nav-item"><a class="nav-link" href="team.html">Équipe</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">À propos</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          <li class="nav-item ms-3"><a class="btn btn-outline-primary" href="auth.html">Connexion</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="pt-6">
+
+    <!-- Compact hero for Applications -->
+    <header class="py-5 bg-white border-bottom">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-7" data-aos="fade-up">
+            <h1 class="h2 mb-2">Catalogue d'applications</h1>
+            <p class="text-muted mb-3">Découvrez des applications locales conçues pour la RDC — jeux, FinTech, éducation, santé et plus encore.</p>
+            <div class="d-flex gap-2">
+              <a href="developers.html" class="btn btn-outline-primary">Publier une app</a>
+              <a href="contact.html" class="btn btn-primary">Besoin d'aide ?</a>
+            </div>
+          </div>
+          <div class="col-md-5 text-center" data-aos="fade-left">
+            <div id="lottie-apps" style="max-width:320px;margin:0 auto;" aria-hidden="true"></div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Search & Filters toolbar -->
+    <section class="container py-4">
+      <div class="d-flex flex-column flex-md-row gap-3 align-items-center justify-content-between">
+        <div class="d-flex gap-2 w-100" style="max-width:900px;">
+          <label class="visually-hidden" for="search">Rechercher</label>
+          <input id="search" class="form-control" placeholder="Rechercher une application..." aria-label="Rechercher" />
+          <label class="visually-hidden" for="category-filter">Filtrer par catégorie</label>
+          <select id="category-filter" class="form-select" style="width:180px;" aria-label="Filtrer par catégorie">
+            <option value="all">Toutes catégories</option>
+            <option>Jeux</option>
+            <option>FinTech</option>
+            <option>Éducation</option>
+            <option>Santé</option>
+            <option>E-commerce</option>
+          </select>
+        </div>
+
+        <div class="d-flex gap-2 align-items-center">
+          <label class="visually-hidden" for="sort-by">Trier par</label>
+          <select id="sort-by" class="form-select form-select-sm" style="width:160px;" aria-label="Trier par">
+            <option value="pop">Popularité</option>
+            <option value="new">Les plus récents</option>
+            <option value="alpha">A → Z</option>
+          </select>
+          <button id="view-grid" class="btn btn-sm btn-outline-secondary" aria-pressed="true">Grille</button>
+          <button id="view-list" class="btn btn-sm btn-outline-secondary" aria-pressed="false">Liste</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Description and quick stats -->
+    <section class="container pb-3">
+      <p class="text-muted">Parcourez des applications développées par des talents congolais. Utilisez la recherche et les filtres pour trouver l'application qui vous convient.</p>
+      <div class="row mb-3 text-center">
+        <div class="col-4">
+          <div class="h4 mb-0">124</div>
+          <small class="text-muted">Applications</small>
+        </div>
+        <div class="col-4">
+          <div class="h4 mb-0">32</div>
+          <small class="text-muted">Développeurs</small>
+        </div>
+        <div class="col-4">
+          <div class="h4 mb-0">25k</div>
+          <small class="text-muted">Tél. total</small>
+        </div>
+      </div>
+    </section>
+
+    <!-- Apps grid -->
+    <section class="container pb-5">
+      <div class="row g-4" id="apps-grid" data-aos="fade-up">
+        <!-- App cards injected by JS -->
+      </div>
+
+      <div class="mt-4" id="apps-announcer" aria-live="polite" aria-atomic="true"></div>
+      <nav class="mt-4 d-flex justify-content-center" aria-label="Pagination" id="apps-pagination">
+        <!-- Pagination rendered by JS -->
+      </nav>
+    </section>
+
+    <!-- Partners & CTA -->
+    <section class="py-5 bg-white border-top">
+      <div class="container text-center" data-aos="fade-up">
+        <h6 class="mb-3">Partenaires</h6>
+        <div class="d-flex justify-content-center align-items-center gap-4 flex-wrap mb-3">
+          <img src="assets/img/PART-BUAKSA.jpg" alt="Partenaire 1" width="80" loading="lazy" decoding="async" />
+          <img src="assets/img/PART-BUAKSA.jpg" alt="Partenaire 2" width="80" loading="lazy" decoding="async" />
+          <img src="assets/img/PART-BUAKSA.jpg" alt="Partenaire 3" width="80" loading="lazy" decoding="async" />
+        </div>
+        <div class="d-flex justify-content-center gap-2">
+          <a href="developers.html" class="btn btn-outline-primary">Publier votre app</a>
+          <a href="contact.html" class="btn btn-primary">Nous contacter</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer mt-auto">
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-md-4">
+          <h5>DRC Stor</h5>
+          <p class="text-muted">Plateforme congolaise pour découvrir et publier des applications 100% locales.</p>
+        </div>
+        <div class="col-md-4">
+          <h6>Ressources</h6>
+          <ul class="list-unstyled footer-links">
+            <li><a href="applications.html">Applications</a></li>
+            <li><a href="developers.html">Développeurs</a></li>
+            <li><a href="about.html">À propos</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h6>Contact & newsletter</h6>
+          <p class="small text-muted mb-2">contact@drcstor.cd — +243 812 000 000</p>
+          <form class="d-flex" onsubmit="event.preventDefault();alert('Merci pour votre abonnement (mock)')">
+            <input class="form-control form-control-sm me-2" placeholder="Votre email" aria-label="Email" />
+            <button class="btn btn-sm btn-primary">S'abonner</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="pt-4 border-top mt-4 d-flex justify-content-between align-items-center">
+        <small class="text-muted">© 2025 DRC Stor — Tous droits réservés</small>
+        <div>
+          <a href="#" class="text-muted me-3">Politique de confidentialité</a>
+          <a href="#" class="text-muted">Conditions</a>
+        <!-- Compact About-style blocks and partners -->
+        
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://unpkg.com/lottie-web@5.8.1/build/lottie.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>AOS.init({duration:800, once:true});</script>
+</body>
+</html>

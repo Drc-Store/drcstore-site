@@ -1,0 +1,255 @@
+:root{
+  /* Core palette */
+  --brand-blue: #0b63d6; /* primary */
+  --brand-indigo: #1544a8;
+  --accent: #ffd36a; /* warm accent */
+  --danger: #ff4136;
+  --muted: #6c757d;
+  --bg: #f8f9fb;
+  --card: #ffffff;
+  --glass: rgba(255,255,255,0.6);
+  /* Spacing scale */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+}
+
+/* Basic reset and typography */
+/* Load Inter from Google Fonts (variable weights) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+
+/* Fluid typography: base scales nicely across devices */
+html{font-size:clamp(14px, 1.8vw, 18px)}
+body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,sans-serif;background:var(--bg);color:#08202a;-webkit-font-smoothing:antialiased;line-height:1.45}
+
+/* Improve default link color contrast */
+/* Global links: no underline by default for a cleaner, modern look.
+  Keep explicit focus-visible outlines for keyboard accessibility. */
+a{color:var(--brand-blue);text-decoration:none}
+
+/* Navbar links: no underline and color change on hover */
+.navbar a.nav-link, .navbar .navbar-brand{text-decoration:none}
+.navbar a.nav-link:hover, .navbar a.nav-link:active{color:var(--brand-indigo)}
+.navbar a.nav-link:focus-visible{outline:3px solid rgba(11,99,214,.12);outline-offset:3px}
+
+/* Footer: keep hover color change but do not underline */
+.site-footer .footer-links a:hover{text-decoration:none;color:var(--brand-blue)}
+
+/* Compensate for fixed navbar: utility padding-top */
+.pt-6{padding-top:6.5rem!important}
+
+/* Loader */
+#loader{position:fixed;inset:0;background:linear-gradient(135deg,var(--brand-blue),#1544a8);z-index:1050;transition:opacity .6s ease,visibility .6s ease}
+#loader .loader-inner{color:var(--card)}
+.loader-logo{width:90px;animation:loader-rotate 1.8s linear infinite}
+.loader-title{color:var(--card);opacity:.95;margin-top:12px;letter-spacing:1px}
+.loader-hidden{opacity:0;visibility:hidden;pointer-events:none;transition:opacity .6s ease,visibility .6s ease}
+@keyframes loader-rotate{0%{transform:rotate(0) scale(1)}50%{transform:rotate(180deg) scale(1.05)}100%{transform:rotate(360deg) scale(1)}}
+
+/* Navbar spacing and improved visuals */
+.navbar{padding:0.85rem 0;background:linear-gradient(180deg,#ffffff,#fbfdff);border-bottom:1px solid rgba(2,6,23,.04)}
+.navbar .nav-link{color:rgba(2,6,23,.78);padding:.6rem .7rem;border-radius:calc(var(--radius-sm) - 2px)}
+.navbar .nav-link:hover{color:var(--brand-blue);background:rgba(11,99,214,.04)}
+.navbar .nav-link.active, .navbar .nav-link[aria-current="page"]{color:var(--brand-blue);font-weight:700}
+.navbar .btn-outline-primary{padding:.45rem .7rem}
+.navbar-toggler{border-radius:10px}
+.navbar .navbar-brand{display:flex;align-items:center;gap:.5rem}
+.navbar .navbar-brand img{border-radius:8px}
+.navbar .nav-link:focus-visible{outline:3px solid rgba(11,99,214,.12);outline-offset:3px}
+.hero{min-height:72vh;background:linear-gradient(180deg,rgba(11,99,214,.92),rgba(7,54,141,.75));padding-top:6rem;border-bottom-left-radius:28px;border-bottom-right-radius:28px}
+.hero h2{color:var(--card);text-shadow:0 6px 24px rgba(2,10,25,.12)}
+.btn-explore{background:linear-gradient(90deg,var(--accent),#ffd36a);color:#08202a;transition:transform .22s cubic-bezier(.2,.9,.2,1),box-shadow .22s}
+.btn-explore:hover{transform:translateY(-4px);box-shadow:0 14px 36px rgba(2,10,25,.12)}
+
+/* Cards */
+.card{border:0;border-radius:var(--radius-md);background:linear-gradient(180deg,var(--card),#fbfbff)}
+.app-card{transition:transform .28s cubic-bezier(.2,.9,.2,1),box-shadow .28s;border-radius:var(--radius-md)}
+.app-card:hover{transform:translateY(-6px);box-shadow:0 22px 44px rgba(2,10,25,.06)}
+.app-thumb{height:160px;object-fit:cover;border-radius:12px;background:#e9ecef}
+
+/* Icons */
+.icon-circle{display:inline-flex;align-items:center;justify-content:center;width:72px;height:72px;border-radius:14px;background:linear-gradient(180deg,var(--card),#fbfbff);box-shadow:0 8px 20px rgba(2,10,25,.06);font-size:28px}
+
+/* Forms focus animations */
+.form-control:focus{box-shadow:0 10px 30px rgba(11,99,214,.10);border-color:var(--brand-blue)}
+input[type=file]{cursor:pointer}
+
+/* Chat card */
+#lottie-chat{height:160px}
+
+/* Auth card */
+#auth-card{transition:transform .35s cubic-bezier(.2,.9,.2,1)}
+
+/* small utilities */
+.visually-hidden{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* Features */
+.feature-card{border-radius:var(--radius-md);box-shadow:0 14px 36px rgba(2,10,25,.06)}
+.feature-icon{width:72px;height:72px;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;font-size:30px;background:linear-gradient(180deg,var(--accent),#ffd36a);box-shadow:0 8px 20px rgba(2,10,25,.06)}
+
+/* Testimonials */
+.testimonial{border-radius:12px;background:linear-gradient(180deg,#fff,#fbfbff);box-shadow:0 14px 32px rgba(2,10,25,.05)}
+.testimonial img{background:#fff;padding:4px}
+
+/* CTA hero */
+.cta-hero{background:linear-gradient(135deg,rgba(11,99,214,.95),#0b63d6);padding-top:3.5rem;padding-bottom:3.5rem;border-radius:18px;margin:2rem 0}
+.cta-hero .btn-outline-light{border-color:rgba(255,255,255,.18)}
+.text-white-50{color:rgba(255,255,255,.9)}
+
+/* small utility tweaks */
+.gap-2{gap:.5rem}
+
+/* Footer */
+.site-footer{background:var(--bg);padding:2.5rem 0;border-top:1px solid rgba(2,10,25,.04)}
+.site-footer h5{margin-bottom:.5rem}
+.site-footer .footer-links a{color:var(--muted);text-decoration:none}
+.site-footer .footer-links a:hover{text-decoration:none;color:var(--brand-blue)}
+.site-footer .form-control-sm{min-width:0}
+
+/* Accessibility: skip link and focus styles */
+.skip-link{position:absolute;left:0;top:0;background:var(--brand-blue);color:#fff;padding:.6rem .9rem;z-index:1200;transform:translateY(-120%);transition:transform .2s ease}
+.skip-link:focus{transform:translateY(0)}
+
+:focus{outline:none}
+:focus-visible{outline:3px solid rgba(11,99,214,.9);outline-offset:3px;border-radius:6px}
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible{box-shadow:0 0 0 4px rgba(11,99,214,.12);}
+
+.btn:focus{box-shadow:0 0 0 4px rgba(11,99,214,.12)}
+
+/* Stronger focus ring for team cards (keyboard users) */
+.team-card:focus{outline:none;box-shadow:0 0 0 4px rgba(11,99,214,.12),0 18px 36px rgba(2,10,25,.06);transform:translateY(-6px)}
+.team-card:focus-visible{box-shadow:0 0 0 5px rgba(11,99,214,.14),0 18px 36px rgba(2,10,25,.08)}
+
+/* Small responsive tweaks */
+@media(max-width:768px){.hero{padding-top:5rem}.loader-logo{width:72px}}
+
+/* Ensure anchor targets are visible below the fixed navbar */
+/* Elements with IDs (targets for skip links, anchors) will have a top margin when scrolled to */
+[id]{scroll-margin-top:calc(6.5rem + 8px)}
+
+@media(max-width:768px){
+  .pt-6{padding-top:5rem!important}
+  [id]{scroll-margin-top:calc(5rem + 8px)}
+}
+
+/* Homepage extras */
+.how-steps li{padding-left:0.35rem}
+.how-steps strong{display:block;margin-bottom:.35rem}
+.counter{font-weight:700;color:var(--brand-blue);font-size:clamp(28px,3.2vw,40px)}
+.card .rounded-circle{object-fit:cover;width:72px;height:72px}
+.featured-devs .card{min-height:170px}
+@media(max-width:576px){.how-steps li{font-size:.95rem}.counter{font-size:28px}}
+
+/* Auth small tweaks */
+.input-group .btn{border-top-left-radius:0;border-bottom-left-radius:0}
+#login-announcer,#reg-announcer{color:var(--muted);margin-top:.5rem}
+.btn[disabled]{opacity:.7;cursor:not-allowed}
+
+/* Contact page extras */
+.alert{border-radius:10px}
+#chat-body{min-height:120px}
+.map-placeholder{background:#e9ecef;border-radius:12px;height:200px;display:flex;align-items:center;justify-content:center;color:var(--muted)}
+
+/* Chat styles */
+.chat-log{max-height:260px;overflow:auto;padding:12px;border-radius:10px;background:#fff;border:1px solid rgba(2,6,23,.04)}
+.chat-message{padding:8px;margin-bottom:8px;border-radius:8px}
+.chat-bot{background:#f5f7ff}
+.chat-user{background:#e9f7ef;text-align:right}
+.chat-log .small{opacity:.7}
+.chat-log:focus{outline:3px solid rgba(0,123,255,.12)}
+
+/* Team page styles */
+.team-card{border-radius:var(--radius-md);transition:transform .28s cubic-bezier(.2,.9,.2,1),box-shadow .28s}
+.team-card:hover{transform:translateY(-8px);box-shadow:0 24px 44px rgba(2,10,25,.08)}
+.team-card img{border:4px solid rgba(255,255,255,.6);box-shadow:0 6px 18px rgba(2,10,25,.06)}
+.team-card .btn{min-width:110px}
+.team-card h5{margin-bottom:.25rem}
+.team-card p{min-height:48px}
+
+/* 3D phone showcase in hero */
+.phone-3d-wrap{display:flex;justify-content:center;align-items:center;pointer-events:none}
+.phone-3d{width:200px;height:420px;position:relative;transform-style:preserve-3d;perspective:1200px}
+.phone-frame{position:absolute;inset:0;border-radius:28px;background:linear-gradient(180deg,#0b2b18,#0b3940);box-shadow:0 20px 50px rgba(2,6,23,.25);z-index:4}
+.phone-screen{position:absolute;top:12px;left:12px;right:12px;bottom:12px;border-radius:20px;overflow:hidden;backface-visibility:hidden;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,#ffffff,#f3f6fb);box-shadow:inset 0 1px 0 rgba(255,255,255,.06)}
+.phone-screen img{width:100%;height:100%;object-fit:cover;display:block}
+.phone-frame:before{content:'';position:absolute;inset:0;border-radius:28px;box-shadow:inset 0 2px 8px rgba(255,255,255,.03);pointer-events:none}
+
+/* Bezel details: speaker and button */
+.phone-frame:after{content:'';position:absolute;left:50%;top:8px;transform:translateX(-50%);width:40px;height:6px;border-radius:6px;background:rgba(255,255,255,.12);z-index:6}
+.phone-3d .home-dot{position:absolute;left:50%;bottom:10px;transform:translateX(-50%);width:40px;height:6px;border-radius:6px;background:rgba(255,255,255,.08);z-index:6}
+
+/* Inner app grid styling (for screen thumbnails) */
+.phone-screen .app-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding:10px;width:100%;height:100%}
+.phone-screen .app-tile{background:linear-gradient(180deg,#fff,#f7fbff);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--muted);box-shadow:0 4px 10px rgba(2,6,23,.04)}
+
+/* subtle reflection below the phone */
+.phone-3d-wrap{position:relative}
+.phone-3d-wrap:after{content:'';position:absolute;left:50%;transform:translateX(-50%);bottom:-26px;width:220px;height:40px;border-radius:50%;filter:blur(18px);background:linear-gradient(90deg,rgba(11,43,24,.12),rgba(11,57,64,.08));opacity:.85}
+
+/* pause rotation when hovered (desktop) */
+.phone-3d:hover{animation-play-state:paused}
+.screen-1{transform:rotateY(0deg) translateZ(60px)}
+.screen-2{transform:rotateY(120deg) translateZ(60px)}
+.screen-3{transform:rotateY(240deg) translateZ(60px)}
+
+/* animate rotation */
+@keyframes phone-rotate{0%{transform:rotateY(0deg)}100%{transform:rotateY(-360deg)}}
+.phone-3d{animation:phone-rotate 10s linear infinite}
+
+/* a small helper for consistent transitions */
+.transition-smooth{transition:all .28s cubic-bezier(.2,.9,.2,1)}
+
+/* Respect reduced motion preferences: reduce or disable non-essential animations */
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:0.001ms !important;animation-iteration-count:1 !important;transition:none !important}
+  .phone-3d{animation:none !important}
+  .app-card,.team-card{transition:none !important;transform:none !important}
+}
+
+/* make it subtle on mobile */
+@media(max-width:768px){
+  .phone-3d{width:140px;height:300px}
+  .phone-screen{top:10px;left:10px;right:10px;bottom:10px;border-radius:16px}
+}
+
+/* Button system enhancements */
+.btn-primary, .btn.btn-primary{
+  background: linear-gradient(90deg, var(--brand-blue), var(--brand-indigo));
+  border: 0;
+  color: #fff;
+  box-shadow: 0 10px 30px rgba(11,63,150,.12);
+  transition: transform .18s ease, box-shadow .18s ease;
+  border-radius: calc(var(--radius-sm));
+}
+.btn-primary:hover, .btn-primary:focus{
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px rgba(11,63,150,.14);
+}
+.btn-outline-primary{
+  color: var(--brand-blue);
+  border-color: rgba(11,63,150,.12);
+  background: transparent;
+  transition: background .18s ease, transform .12s ease;
+}
+.btn-outline-primary:hover{
+  background: rgba(11,99,214,.05);
+  transform: translateY(-2px);
+}
+
+/* Elevated card utility */
+.elevated{box-shadow:0 14px 34px rgba(2,10,25,.06);border-radius:var(--radius-md)}
+
+/* Slightly larger CTA on hero for prominence */
+.hero .btn-lg{padding: .85rem 1.2rem;font-size:1.025rem}
+
+/* Improve contrast for badge primary */
+.badge.bg-primary{background:linear-gradient(90deg,var(--brand-blue),var(--brand-indigo));color:#fff}
+
+/* Reduced motion: remove transforms but keep focus indicators */
+@media (prefers-reduced-motion: reduce){
+  .btn-primary,.btn-outline-primary,.app-card,.team-card{transition:none !important;transform:none !important}
+}

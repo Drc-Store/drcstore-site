@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1">
+      <stop offset="0" stop-color="#FFD700"/>
+      <stop offset="1" stop-color="#FF4136"/>
+    </linearGradient>
+  </defs>
+  <rect width="120" height="120" rx="20" fill="#007BFF"/>
+  <circle cx="60" cy="40" r="20" fill="url(#g)" />
+  <text x="60" y="86" font-size="18" font-family="Arial" fill="#fff" text-anchor="middle">DRC</text>
+</svg>
